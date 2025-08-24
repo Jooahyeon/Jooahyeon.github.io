@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AHyeon Portfolio</title>
+  <meta name="description" content="AHyeon의 포트폴리오 – 하늘색과 흰색 기반의 동글동글하고 차분한 템플릿" />
+  <style>
+    :root {
+      --bg: #f9fcff;        /* 페이지 배경 (하늘색 톤) */
+      --card: #ffffff;      /* 카드/섹션 배경 */
+      --text: #333333;      /* 본문 텍스트 */
+      --muted: #6c757d;     /* 보조 텍스트 */
+      --brand: #62b8ff;     /* 하늘색 메인 */
+      --brand-light: #a6dcff;/* 연한 하늘색 */
+      --radius: 20px;       /* 동글동글한 모서리 */
+      --shadow: 0 4px 20px rgba(0,0,0,.08); /* 은은한 그림자 */
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0;
+      font-family: 'Segoe UI', 'Noto Sans KR', system-ui, -apple-system, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { text-decoration:none; color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 10px; }
+
+    /* 헤더 */
+    header { background:#fff; border-bottom:1px solid #e2e8f0; position:sticky; top:0; z-index:50; }
+    .container { width:min(1200px, 92vw); margin:0 auto; }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:12px 0; }
+    .brand { display:flex; align-items:center; font-weight:700; color:var(--brand); font-size:18px; letter-spacing:.2px; }
+    .brand-logo { width:28px; height:28px; border-radius:50%; background:var(--brand); margin-right:8px; box-shadow:0 2px 12px rgba(98,184,255,.4); }
+    .menu { display:flex; gap:18px; }
+    .menu a { padding:8px 12px; border-radius:var(--radius); transition: background .25s ease, color .25s ease, transform .15s ease; color:#3b4350; }
+    .menu a:hover { background: var(--brand-light); color:#0b1b2b; }
+
+    .btn { background: var(--brand); color:#fff; border:none; padding:10px 16px; border-radius: var(--radius); cursor:pointer; font-weight:600; transition: transform .08s ease, background .25s ease, color .25s ease; }
+    .btn:hover { background: var(--brand-light); color:#0b1b2b; }
+    .btn:active { transform: scale(.98); }
+
+    /* 히어로 */
+    .hero {
+      background: linear-gradient(180deg, var(--brand-light), #fff);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 64px 20px;
+      margin: 20px 0;
+      text-align:center;
+    }
+    .hero h1 { font-size: clamp(1.9rem, 3.8vw, 2.6rem); margin: 0 0 10px; }
+    .hero p { color: var(--muted); margin: 0 0 20px; }
+
+    /* 섹션 기본 */
+    section { margin:40px 0; }
+    .section-title { font-size: clamp(1.25rem, 2.2vw, 1.6rem); margin-bottom:10px; font-weight:800; letter-spacing:.1px; }
+    .section-sub { color:var(--muted); margin-bottom:20px; }
+
+    /* 그리드 */
+    .grid { display:grid; gap:20px; }
+    @media(min-width:768px){ .grid.cols-3 { grid-template-columns: repeat(3,1fr);} }
+    @media(min-width:768px){ .grid.cols-4 { grid-template-columns: repeat(4,1fr);} }
+
+    /* 카드 */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+    }
+    .card-title { font-size:1.2rem; margin:0 0 6px; font-weight:800; }
+    .meta { font-size:0.94rem; color:var(--muted); }
+    .chip-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .chip { background: var(--brand-light); color:#0b1b2b; border-radius:999px; padding:6px 12px; font-size:0.8rem; }
+
+    /* 타일 */
+    .tiles { display:grid; gap:16px; }
+    @media(min-width:768px){ .tiles { grid-template-columns:repeat(4,1fr);} }
+    .tile { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding:22px; text-align:center; transition: transform .12s ease, box-shadow .25s ease; }
+    .tile:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    .tile h4 { margin:0 0 4px; color: var(--brand); font-size:1.05rem; }
+    .tile small { color: var(--muted); }
+
+    /* 푸터 */
+    footer { background:#fff; border-top:1px solid #e2e8f0; padding:20px 0; margin-top:40px; }
+    .footer-top { display:grid; gap:20px; }
+    @media(min-width:768px){ .footer-top { grid-template-columns:repeat(4,1fr);} }
+    .footer-col h5 { margin:0 0 10px; color:var(--brand); font-size:14px; }
+    .footer-col a { display:block; padding:4px 0; color:#4f5965; }
+    .footer-bottom { text-align:center; color:var(--muted); font-size:0.85rem; margin-top:20px; }
+
+    /* 사용자 선호(감소된 모션) 대응 */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="brand-logo" aria-hidden="true"></div>AHyeon</div>
+      <nav class="menu" aria-label="주요 메뉴">
+        <a href="#products">프로젝트</a>
+        <a href="#promos">기획전</a>
+        <a href="#categories">카테고리</a>
+        <a href="#about">소개</a>
+        <a href="#contact">연락처</a>
+      </nav>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="인트로">
+      <h1>안녕하세요, 주아현입니다</h1>
+      <p>백엔드 개발자 지망생 포트폴리오입니다. <br>
+         끊임없이 배우고 성장하는 개발자를 지향합니다.  </p>
+      <a class="btn" href="#products">프로젝트 보기</a>
+    </section>
+
+    <section id="products" aria-labelledby="products-title">
+      <h2 class="section-title" id="products-title">진행 프로젝트</h2>
+      <p class="section-sub">작업한 프로젝트를 소개합니다.</p>
+      <div class="grid cols-3">
+        <article class="card" aria-labelledby="p1-title">
+          <h3 class="card-title" id="p1-title">ERP 활용 인사관리시스템</h3>
+          <p class="meta">조직도 기반 결재자 추천 · 중복 제거 · 순서 제어</p>
+          <div class="chip-row">
+            <span class="chip">Spring Boot</span>
+            <span class="chip">MyBatis</span>
+          </div>
+        </article>
+        <article class="card" aria-labelledby="p2-title">
+          <h3 class="card-title" id="p2-title">협업형 Todo-List</h3>
+          <p class="meta">실시간 통계 · 권한 기반 UI · 반응형</p>
+          <div class="chip-row">
+            <span class="chip">Vue 3</span>
+            <span class="chip">AgGrid</span>
+            <span class="chip">Element Plus</span>
+          </div>
+        </article>
+        <article class="card" aria-labelledby="p3-title">
+          <h3 class="card-title" id="p3-title">재고관리시스템 (사이드프로젝트) </h3>
+          <p class="meta">전자상결제 · ERP · </p>
+          <div class="chip-row">
+            <span class="chip">Python</span>
+            <span class="chip">React</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="promos" aria-labelledby="promos-title">
+      <h2 class="section-title" id="promos-title"></h2>
+      <p class="section-sub">테마별로 큐레이션된 콘텐츠를 확인하세요.</p>
+      <div class="grid cols-4">
+        <article class="card">
+          <h3 class="card-title">DB Inc.</h3>
+          <p class="meta">요구사항 분석 → API 설계 → 배포</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title"> 테마</h3>
+          <p class="meta">모던·심플 블루 톤 PPT</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">데이터 분석 프로젝트</h3>
+          <p class="meta">시각화 · 통계 분석</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">UX 개선</h3>
+          <p class="meta">결재 플로우 개선으로 클릭 20% 감소</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="categories" aria-labelledby="categories-title">
+      <h2 class="section-title" id="categories-title">TeckStack</h2>
+      <p class="section-sub">개발 공부와 프로젝트 경험을 통해 익힌 기술 스택입니다. <br> 지속적으로 학습하며 확장하고 있습니다.</p>
+      <div class="tiles">
+        <a class="tile" href="#products">
+          <h4>Backend</h4>
+          <small>Spring · JPA · MyBatis</small>
+        </a>
+        <a class="tile" href="#products">
+          <h4>Frontend</h4>
+          <small>Vue 3 · UI</small>
+        </a>
+        <a class="tile" href="#products">
+          <h4>Data/ML</h4>
+          <small>RAG · Python</small>
+        </a>
+        <a class="tile" href="#products">
+          <h4>Design</h4>
+          <small>PPT · UX</small>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">About</h2>
+      <p class="section-sub">배움을 엔진으로 삼는 개발자, AHyeon</p>
+      <div class="card"><p style="margin:0; color:var(--muted);">백엔드 지향 개발자. ERP/전자결재, 데이터 기반 문제해결, 실무 친화 UI/UX에 관심이 많습니다.</p></div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact</h2>
+      <div class="card" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="mailto:ahyeon@example.com">이메일</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Notion</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-top">
+      <div class="footer-col">
+        <h5>AHyeon</h5>
+        <a href="#products">프로젝트</a>
+        <a href="#categories">카테고리</a>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <a href="#about">소개</a>
+        <a href="#contact">연락처</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social</h5>
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="footer-col">
+        <h5>Theme</h5>
+        <span style="color:#4f5965">Sky & White · Rounded</span>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 AHyeon. All rights reserved.</div>
+  </footer>
+</body>
+</html>
